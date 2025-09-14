@@ -1,0 +1,14 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "api for crypto dashboard project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Atharva khode",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
