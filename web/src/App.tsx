@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CoinTable from "./components/CoinTable";
 import TrendChart from "./components/TrendChart";
+import ChatPanel from "./components/ChatPanel";
 
 export default function App() {
   const [selected, setSelected] = useState<string>("");
@@ -77,7 +78,16 @@ export default function App() {
             </div>
           </div>
 
-
+          {/*Chat Assistant */}
+          <div className="lg:col-span-1">
+            <div className="bg-white rounded-xl shadow-sm border p-6 h-fit">
+              <div className="mb-6">
+                <h2 className="text-xl font-semibold text-gray-900 mb-2">Chat Assistant</h2>
+                <p className="text-gray-600">Ask questions about crypto trends and get insights</p>
+              </div>
+              <ChatPanel onTrendDetected={(cgId, d) => { setSelected(cgId); setDays(d); }} />
+            </div>
+          </div>
         </div>
       </main>
     </div>
