@@ -1,10 +1,11 @@
 {
   "name": "api",
   "version": "1.0.0",
+  "type": "module",
   "description": "api for crypto dashboard project",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js",
+    "dev": "nodemon index.js",
     "build": "echo \"no build step\"",
     "prisma:dev": "prisma migrate dev --name init && prisma generate",
     "seed": "node src/seed.js"
@@ -16,7 +17,8 @@
     "axios": "^1.12.2",
     "cors": "^2.8.5",
     "dotenv": "^17.2.2",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "node-cron": "^4.2.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.10",
