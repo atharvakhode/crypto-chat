@@ -1,17 +1,22 @@
-const express = require('express');
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import coinsRouter from "./routes/coins.js";
+import qaRouter from "./routes/qa.js";
+import { scheduleSync } from "./sync.js";
 
+dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 3000;
+app.use(cors());
+app.use(express.json());
 
-app.get('/', (req, res)=>{
-    res.status(200);
-    res.send("Welcome to root URL of Server");
-});
+app.get("/", (_req, res) => res.json({ msg: "Welcome to Crypto Dashboard API" }));
+app.get("/api/health", (_req, res) => res.json({ ok: true }));
+app.use("/api/coins", coinsRouter);
+app.use("/api/qa", qaRouter);
 
-app.listen(PORT, (error) =>{
-    if(!error)
-        console.log("Server is Successfully Running, and App is listening on port "+ PORT);
-    else 
-        console.log("Error occurred, server can't start", error);
-    }
-);
+// kick off scheduled sync (and an immediate warm-up)
+scheduleSync();
+
+const port = process.env.PORT || 4000;
+app.listen(port, () => console.log(`API running on http://localhost:${port}`));

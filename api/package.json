@@ -1,14 +1,27 @@
 {
   "name": "api",
   "version": "1.0.0",
+  "type": "module",
   "description": "api for crypto dashboard project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon index.js",
+    "build": "echo \"no build step\"",
+    "prisma:dev": "prisma migrate dev --name init && prisma generate",
+    "seed": "node src/seed.js"
   },
   "author": "Atharva khode",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "@prisma/client": "^6.16.2",
+    "axios": "^1.12.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "node-cron": "^4.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "prisma": "^6.16.2"
   }
 }
