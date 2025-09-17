@@ -18,8 +18,8 @@ app.use("/api/qa", qaRouter);
 // kick off scheduled sync (and an immediate warm-up)
 scheduleSync();
 
-const port = process.env.PORT || 4000;
-app.listen(port, () => console.log(`API running on http://localhost:${port}`));
+// const port = process.env.PORT || 4000;
+// app.listen(port, () => console.log(`API running on http://localhost:${port}`));
 
 
 export default app;
